@@ -1,12 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chicken Predict</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Chicken Delivery Predict</title>
+
+  <!-- Custom fonts for this theme -->
+  <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Theme CSS -->
+  <link href="{{ url_for('static', filename='css/freelancer.min.css') }}" rel="stylesheet">
+
 </head>
-<body>
-    
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Chicken Delivery Predict</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+         <!--  <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>
+          </li> -->
+          <!-- <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Predict</a>
+          </li> -->
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#predict">Predict</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Masthead -->
+  <header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+
+      <!-- Masthead Avatar Image -->
+      <img class="masthead-avatar mb-5" src="{{ url_for('static', filename='img/avataaars.svg') }}" alt="">
+
+      <!-- Masthead Heading -->
+      <h1 class="masthead-heading text-uppercase mb-0">Chicken Delivery Predict</h1>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- Masthead Subheading -->
+      <p class="masthead-subheading font-weight-light mb-0">  </p>
+
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="page-section bg-primary text-white mb-0" id="predict">
+    <div class="container">
+
+      <!-- About Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase">Delivery Predict</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- About Section Content -->
+      <div class="row">
+        <div class="col-lg-4">          
+        </div>
+        <!-- <div class="col-lg-4 mr-auto">
+          <p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p>
+        </div> -->           
+        <div class="col-lg-4 form-group"> <!-- style='line-height: 200%' -->
+          <p class="lead">
+            <form action="/result" method="POST">
+              <strong>요일</strong>
+              <select name="dayofweek" class="form-control form-control-sm">            
+                  <option value="1">월</option>
+                  <option value="2">화</option>
+                  <option value="3">수</option>
+                  <option value="4">목</option>
+                  <option value="5">금</option>
+                  <option value="6">토</option>
+                  <option value="0">일</option>
+              </select>
+            <br>
+              <strong>주요 고객 성별</strong><br>
+              <input type="radio" name="gender" value="1">&nbsp;&nbsp;남&nbsp;&nbsp;자
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="gender" value="0">&nbsp;&nbsp;여&nbsp;&nbsp;자
+              <!-- <strong>주요 고객 성별</strong><br>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline1" name="gender" class="custom-control-input" value="1">
+                <label class="custom-control-label" for="customRadioInline1">남자</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2" name="gender" class="custom-control-input" value="0">
+                <label class="custom-control-label" for="customRadioInline2">여자</label>
+              </div> -->
+              
+            <br><br>    
+              <strong>주요 고객 연령대</strong>&nbsp;
+              <select name="age" class="form-control form-control-sm">
+                  <option value="0">10대</option>
+                  <option value="1">20대</option>
+                  <option value="2">30대</option>
+                  <option value="3">40대</option>
+                  <option value="4">50대</option>
+                  <option value="5">60대 이상</option>
+              </select>
+            <br>
+              <strong>지역</strong>
+              <select name="gu" class="form-control form-control-sm">
+                  <option value="0">강남구</option>
+                  <option value="1">강동구</option>
+                  <option value="2">강북구</option>
+                  <option value="3">강서구</option>
+                  <option value="4">관악구</option>
+                  <option value="5">광진구</option>
+                  <option value="6">구로구</option>
+                  <option value="7">금천구</option>
+                  <option value="8">노원구</option>
+                  <option value="9">도봉구</option>
+                  <option value="10">동대문구</option>
+                  <option value="11">동작구</option>
+                  <option value="12">마포구</option>
+                  <option value="13">서대문구</option>
+                  <option value="14">서초구</option>
+                  <option value="15">성동구</option>
+                  <option value="16">성북구</option>
+                  <option value="17">송파구</option>
+                  <option value="18">양천구</option>
+                  <option value="19">영등포구</option>
+                  <option value="20">용산구</option>
+                  <option value="21">은평구</option>
+                  <option value="22">종로구</option>
+                  <option value="23">중구</option>
+                  <option value="24">중랑구</option>
+              </select>
+            <br>
+              <strong>평균 기온(ºC)</strong>
+              <input type="text" class="form-control" name="Temperature">
+            <br>
+              <strong>강수 유무</strong><br>
+              <input type="radio" name="Rainfall" value="0">&nbsp;&nbsp;맑&nbsp;&nbsp;음
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="Rainfall" value="1">&nbsp;&nbsp;비/눈옴
+              
+              <!-- <strong>강수 유무</strong><br>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" name="Rainfall" id="customRadioInline3" class="custom-control-input" value="0">
+                <label class="custom-control-label" for="customRadioInline1">맑음</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" name="Rainfall" id="customRadioInline4" class="custom-control-input" value="1">
+                <label class="custom-control-label" for="customRadioInline2">비/눈옴</label>
+              </div> -->
+
+            <br><br>
+              <strong>국가대표 축구 경기 유무</strong><br>
+              <input type="radio" name="game_count" value="1">&nbsp;&nbsp;경기있음
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="game_count" value="0">&nbsp;&nbsp;경기없음
+
+              <!-- <strong>국가대표 축구 경기 유무</strong><br>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" name="game_count" class="custom-control-input" value="1">
+                <label class="custom-control-label" for="customRadioInline1">경기있음</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" name="game_count" class="custom-control-input" value="0">
+                <label class="custom-control-label" for="customRadioInline2">경기없음</label>
+              </div> -->
+            <br>
+            <div class="text-center mt-4">
+              <button type="submit" class="btn btn-light">확 인</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="reset" class="btn btn-light">취 소</button>
+            </div>
+          </form>
+
+          </p>
+        
+        </div>        
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="row">
+
+        <!-- Footer Location -->
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Location</h4>
+          <p class="lead mb-0">Multicampus
+            <br> </p>
+        </div>
+
+        <!-- Footer Social Icons -->
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Around the Web</h4>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-facebook-f"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-twitter"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-linkedin-in"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-dribbble"></i>
+          </a>
+        </div>
+
+        <!-- Footer About Text -->
+        <div class="col-lg-4">
+          <h4 class="text-uppercase mb-4">About Team</h4>
+          <p class="lead mb-0">Min-Chang, Jung & Yun-ok, Kwon<br>
+            <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Copyright Section -->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; Your Website 2019</small>
+    </div>
+  </section>
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="{{ url_for('static', filename='js/jqBootstrapValidation.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/contact_me.js') }}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{{ url_for('static', filename='js/freelancer.min.js') }}"></script>
+
 </body>
+
 </html>

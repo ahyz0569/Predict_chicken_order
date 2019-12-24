@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chicken Predict</title>
+    <style>
+        .form-align{ text-align: center;}
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <!-- 컬럼 : DAYOFWEEK	GENDER	AGE	GU	Temperature	Rainfall game_count-->
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <h2 align="center">치킨 배달 주문량 예측 시스템</h2>
+            </div>
+            <div class="col"></div>
+        </div>
+        
+        <div class="row form-align">
+            <div class="col-4"></div>
+                <form action="/result" method="POST">
+                    <strong>요일</strong>
+                    <select name="dayofweek">            
+                        <option value="1">월</option>
+                        <option value="2">화</option>
+                        <option value="3">수</option>
+                        <option value="4">목</option>
+                        <option value="5">금</option>
+                        <option value="6">토</option>
+                        <option value="0">일</option>
+                    </select>
+                <br>
+                    <strong>주요 고객 성별</strong>
+                    <input type="radio" name="gender" value="1">남자 
+                    <input type="radio" name="gender" value="0">여자 
+                <br>    
+                    <strong>주요 고객 연령대</strong>
+                    <select name="age">
+                        <option value="0">10대</option>
+                        <option value="1">20대</option>
+                        <option value="2">30대</option>
+                        <option value="3">40대</option>
+                        <option value="4">50대</option>
+                        <option value="5">60대 이상</option>
+                    </select>
+                <br>
+
+                    <strong>지역</strong>
+                    <select name="gu">
+                        <option value="0">강남구</option>
+                        <option value="1">강동구</option>
+                        <option value="2">강북구</option>
+                        <option value="3">강서구</option>
+                        <option value="4">관악구</option>
+                        <option value="5">광진구</option>
+                        <option value="6">구로구</option>
+                        <option value="7">금천구</option>
+                        <option value="8">노원구</option>
+                        <option value="9">도봉구</option>
+                        <option value="10">동대문구</option>
+                        <option value="11">동작구</option>
+                        <option value="12">마포구</option>
+                        <option value="13">서대문구</option>
+                        <option value="14">서초구</option>
+                        <option value="15">성동구</option>
+                        <option value="16">성북구</option>
+                        <option value="17">송파구</option>
+                        <option value="18">양천구</option>
+                        <option value="19">영등포구</option>
+                        <option value="20">용산구</option>
+                        <option value="21">은평구</option>
+                        <option value="22">종로구</option>
+                        <option value="23">중구</option>
+                        <option value="24">중랑구</option>
+                    </select>
+                <br>
+                    <strong>평균 기온(ºC)</strong>
+                    <input type="text" name="Temperature">
+                <br>
+                    <strong>강수 유무</strong>
+                    <input type="radio" name="Rainfall" value="0">맑음
+                    <input type="radio" name="Rainfall" value="1">비/눈옴
+                <br>
+                    <strong>국가대표 축구 경기 유무</strong>
+                    <input type="radio" name="game_count" value="1">경기있음
+                    <input type="radio" name="game_count" value="0">경기없음
+                <br>
+                    <input type="submit" value="확인">
+                    <input type="reset" value="취소">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
