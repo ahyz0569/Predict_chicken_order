@@ -19,7 +19,7 @@ Python3, Flask, sklearn
 
 ### 분석 보고서
 
-[보고서]: Module_Project_Report.ipynb(report\Module_Project_Report.ipynb)
+[보고서 링크](https://github.com/ahyz0569/Predict_chicken_order/blob/master/report/Module_Project_Report.pdf)
 
 
 
