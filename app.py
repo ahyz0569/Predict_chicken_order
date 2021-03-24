@@ -57,7 +57,7 @@ def result():
 
 # 의사결정트리를 생성하고 유저가 입력한 값을 받아 예측한 결과값을 전달
 def decision_tree(dayofweek, gender, age, gu, temperature, rainfall, game_count):
-    chCall_df = pd.read_csv("C:/ai/workspace/Module_project02/decision_tree_table.csv")
+    chCall_df = pd.read_csv("../csv/decision_tree_table.csv")
     y_label = chCall_df['CALLCNT']
     chCall_df.drop('CALLCNT', axis=1, inplace=True)
     X_train, X_test, y_train, y_test = train_test_split(chCall_df, y_label)
